@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Anuj Kulkarni Portfolio with Animated Skills</title>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <canvas id="particles-canvas"></canvas>
+        <div class="custom-cursor"></div>
+        <header>
+            <div class="header-content">
+                <a class="logo" href="#hero">
+                    <span class="logo-accent">//</span> ANUJ KULKARNI
+                </a>
+                <nav>
+                    <a href="#hero">/home</a>
+                    <a href="#skills">/skills</a>
+                    <a href="#projects">/projects</a>
+                    <a href="#experience">/experience</a>
+                    <a href="#contact">/contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="dot"></span>
+                        <span class="label">Theme</span>
+                    </button>
+                    <button class="menu-icon">☰</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="container">
+                <!-- Hero Section -->
+                <div id="hero">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Anuj Kulkarni</h1>
+                            <h2 class="subtitle">Data Science &amp; Machine Learning Engineer</h2>
+                            <p class="description">
+                                Transforming raw data into intelligent insights through machine learning and advanced analytics.
+                            </p>
+                        </div>
+                        <div class="hero-3d-container">
+                            <div class="model-viewer-placeholder">
+                                <div class="model-viewer-content">
+                                    <div class="rotating-cube">
+                                        <div class="cube-face front"></div>
+                                        <div class="cube-face back"></div>
+                                        <div class="cube-face left"></div>
+                                        <div class="cube-face right"></div>
+                                        <div class="cube-face top"></div>
+                                        <div class="cube-face bottom"></div>
+                                    </div>
+                                </div>
+                                <p class="model-label">3D Model Viewer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <a href="https://github.com/steam-bell-92" target="_blank" class="btn btn-secondary" title="GitHub Profile">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/anuj-chandrakant-kulkarni" target="_blank" class="btn btn-secondary" title="LinkedIn Profile">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg> LinkedIn
+                        </a>
+                        <a href="https://github.com/steam-bell-92/Resume/raw/main/Anuj_Kulkarni_Resume.pdf" download="Anuj_Kulkarni_Resume.pdf" class="btn btn-primary" title="Download Resume">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg> Download Resume
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div id="skills">
+                    <h2 class="section-header">// Tech Stack Cloud</h2>
+                    <div class="skills-cloud-container">
+                        <div class="skill-tag skill-large" data-level="expert">Python</div>
+                        <div class="skill-tag skill-medium" data-level="advanced">NumPy</div>
+                        <div class="skill-tag skill-large" data-level="expert">Pandas</div> 
+                        <div class="skill-tag skill-large" data-level="expert">Scikit-Learn</div>
+                        <div class="skill-tag skill-medium" data-level="advanced">Matplotlib</div>
+                        <div class="skill-tag skill-medium" data-level="advanced">Git</div>
+                        <div class="skill-tag skill-small" data-level="intermediate">HTML/CSS</div>
+                        <div class="skill-tag skill-medium" data-level="advanced">Seaborn</div>
+                        <div class="skill-tag skill-small" data-level="intermediate">TensorFlow</div>
+                        <div class="skill-tag skill-medium" data-level="advanced">Plotly</div>
+                        <div class="skill-tag skill-medium" data-level="advanced">Jupyter</div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div id="projects">
+                    <h2 class="section-header">// Project Case Studies</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div>
+                                <p class="project-title">Occupancy Detection Using Intel Sensors</p>
+                                <p class="project-description">
+                                    Built a machine learning classifier to predict room occupancy using Intel Lab sensor data including temperature, humidity, and light readings with 95%+ accuracy.
+                                    <span class="status-completed">Status: Completed.</span>
+                                </p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" class="project-link" title="View Repository">
+                                    <span>📍 Repository</span>
+                                </a>
+                            </div>
+                            <div class="tag-container">
+                                <span class="tag">Python</span>
+                                <span class="tag">ML</span>
+                                <span class="tag">Classification</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div>
+                                <p class="project-title">Spotify Music Genre Clustering</p>
+                                <p class="project-description">
+                                    Unsupervised learning model grouping 1.2M+ Spotify songs by acoustic features. 
+                                    <span class="status-completed">Status: Completed.</span>
+                                </p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/steam-bell-92/Spotify" target="_blank" class="project-link" title="View Repository">
+                                    <span>📍 Repository</span>
+                                </a>
+                            </div>
+                            <div class="tag-container">
+                                <span class="tag">Pandas</span>
+                                <span class="tag">ML</span>
+                                <span class="tag">Clustering</span>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Experience Section -->
+                <div id="experience">
+                    <h2 class="section-header">&gt; git log --oneline</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <p class="timeline-title">CAD &amp; 3D Printing Club</p>
+                            <p class="timeline-subtitle">Member</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <p class="timeline-title">BitByte Summer of Code</p>
+                            <p class="timeline-subtitle">ML Contributor</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <p class="timeline-title">Hacktoberfest 2025</p>
+                            <p class="timeline-subtitle">Super Contributor (13 PRs Merged)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div id="contact">
+                    <h2 class="section-header">// Contact</h2>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input id="name" name="name" placeholder="Your Name" type="text"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" placeholder="your.email@domain.com" type="email"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input id="subject" name="subject" placeholder="Project Inquiry" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Your message here..." rows="4"></textarea>
+                            </div>
+                            <button class="submit-btn" type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer>
+                    <div class="footer-content">
+                        <p class="footer-text">© 2025 Anuj Kulkarni</p>
+                        <a class="footer-link" href="https://anujck.vercel.app/">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/>
+                            </svg> Archive
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
