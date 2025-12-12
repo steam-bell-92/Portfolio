@@ -14,6 +14,13 @@ const applyTheme = () => {
 };
 
 themeToggle?.addEventListener('click', () => {
+    // Restart ripple animation (water droplet style)
+    themeToggle.classList.remove('ripple');
+    // Force reflow to restart CSS animations
+    void themeToggle.offsetWidth;
+    themeToggle.classList.add('ripple');
+
+    // Toggle theme with ease-in handled by CSS transitions
     document.body.classList.toggle('light-mode');
     applyTheme();
 });
@@ -118,21 +125,49 @@ initParticles();
 animate();
 
 // ===============================
-// Custom Cursor
+// Contact Form Handling
 // ===============================
-const cursor = document.querySelector('.custom-cursor');
-const interactiveElements = document.querySelectorAll('a, button, input, textarea');
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
 
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.textContent;
+        
+        // Disable submit button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        formStatus.textContent = '';
+        formStatus.className = 'form-status';
+        
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                formStatus.className = 'form-status success';
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            formStatus.textContent = '✗ Oops! There was a problem sending your message. Please try the email link below.';
+            formStatus.className = 'form-status error';
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+}
 
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-
-// Hide cursor when leaving viewport
-document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
-document.addEventListener('mouseenter', () => cursor.style.opacity = '1');

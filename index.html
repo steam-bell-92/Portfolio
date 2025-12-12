@@ -11,7 +11,6 @@
     </head>
     <body>
         <canvas id="particles-canvas"></canvas>
-        <div class="custom-cursor"></div>
         <header>
             <div class="header-content">
                 <a class="logo" href="#hero">
@@ -26,8 +25,26 @@
                 </nav>
                 <div class="header-actions">
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                        <span class="dot"></span>
-                        <span class="label">Theme</span>
+                        <span class="r1"></span>
+                        <span class="r2"></span>
+                        <!-- Sun icon (light mode) -->
+                        <svg class="theme-icon sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <line x1="12" y1="1.5" x2="12" y2="5"></line>
+                                <line x1="12" y1="19" x2="12" y2="22.5"></line>
+                                <line x1="1.5" y1="12" x2="5" y2="12"></line>
+                                <line x1="19" y1="12" x2="22.5" y2="12"></line>
+                                <line x1="4.22" y1="4.22" x2="6.7" y2="6.7"></line>
+                                <line x1="17.3" y1="17.3" x2="19.78" y2="19.78"></line>
+                                <line x1="4.22" y1="19.78" x2="6.7" y2="17.3"></line>
+                                <line x1="17.3" y1="6.7" x2="19.78" y2="4.22"></line>
+                            </g>
+                        </svg>
+                        <!-- Moon icon (dark mode) -->
+                        <svg class="theme-icon moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79z" fill="currentColor"></path>
+                        </svg>
                     </button>
                     <button class="menu-icon">☰</button>
                 </div>
@@ -49,16 +66,52 @@
                         <div class="hero-3d-container">
                             <div class="model-viewer-placeholder">
                                 <div class="model-viewer-content">
-                                    <div class="rotating-cube">
-                                        <div class="cube-face front"></div>
-                                        <div class="cube-face back"></div>
-                                        <div class="cube-face left"></div>
-                                        <div class="cube-face right"></div>
-                                        <div class="cube-face top"></div>
-                                        <div class="cube-face bottom"></div>
+                                    <div class="neural-network">
+                                        <svg viewBox="0 0 240 180" class="neural-svg">
+                                            <!-- Layer 1 to Layer 2 connections -->
+                                            <line x1="30" y1="60" x2="90" y2="40" class="synapse"/>
+                                            <line x1="30" y1="60" x2="90" y2="90" class="synapse"/>
+                                            <line x1="30" y1="60" x2="90" y2="140" class="synapse"/>
+                                            <line x1="30" y1="120" x2="90" y2="40" class="synapse"/>
+                                            <line x1="30" y1="120" x2="90" y2="90" class="synapse"/>
+                                            <line x1="30" y1="120" x2="90" y2="140" class="synapse"/>
+                                            
+                                            <!-- Layer 2 to Layer 3 connections -->
+                                            <line x1="90" y1="40" x2="150" y2="50" class="synapse"/>
+                                            <line x1="90" y1="40" x2="150" y2="90" class="synapse"/>
+                                            <line x1="90" y1="40" x2="150" y2="130" class="synapse"/>
+                                            <line x1="90" y1="90" x2="150" y2="50" class="synapse"/>
+                                            <line x1="90" y1="90" x2="150" y2="90" class="synapse"/>
+                                            <line x1="90" y1="90" x2="150" y2="130" class="synapse"/>
+                                            <line x1="90" y1="140" x2="150" y2="50" class="synapse"/>
+                                            <line x1="90" y1="140" x2="150" y2="90" class="synapse"/>
+                                            <line x1="90" y1="140" x2="150" y2="130" class="synapse"/>
+                                            
+                                            <!-- Layer 3 to Layer 4 connections -->
+                                            <line x1="150" y1="50" x2="210" y2="90" class="synapse"/>
+                                            <line x1="150" y1="90" x2="210" y2="90" class="synapse"/>
+                                            <line x1="150" y1="130" x2="210" y2="90" class="synapse"/>
+                                            
+                                            <!-- Input Layer -->
+                                            <circle cx="30" cy="60" r="8" class="neuron input"/>
+                                            <circle cx="30" cy="120" r="8" class="neuron input"/>
+                                            
+                                            <!-- Hidden Layer 1 -->
+                                            <circle cx="90" cy="40" r="8" class="neuron hidden"/>
+                                            <circle cx="90" cy="90" r="8" class="neuron hidden"/>
+                                            <circle cx="90" cy="140" r="8" class="neuron hidden"/>
+                                            
+                                            <!-- Hidden Layer 2 -->
+                                            <circle cx="150" cy="50" r="8" class="neuron hidden"/>
+                                            <circle cx="150" cy="90" r="8" class="neuron hidden"/>
+                                            <circle cx="150" cy="130" r="8" class="neuron hidden"/>
+                                            
+                                            <!-- Output Layer -->
+                                            <circle cx="210" cy="90" r="8" class="neuron output"/>
+                                        </svg>
                                     </div>
                                 </div>
-                                <p class="model-label">3D Model Viewer</p>
+                                <p class="model-label">Neural Network</p>
                             </div>
                         </div>
                     </div>
@@ -173,27 +226,32 @@
                 <div id="contact">
                     <h2 class="section-header">// Contact</h2>
                     <div class="contact-form">
-                        <form>
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input id="name" name="name" placeholder="Your Name" type="text"/>
+                                    <input id="name" name="name" placeholder="Your Name" type="text" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" name="email" placeholder="your.email@domain.com" type="email"/>
+                                    <input id="email" name="email" placeholder="your.email@domain.com" type="email" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Subject</label>
-                                <input id="subject" name="subject" placeholder="Project Inquiry" type="text"/>
+                                <input id="subject" name="subject" placeholder="Project Inquiry" type="text" required/>
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" name="message" placeholder="Your message here..." rows="4"></textarea>
+                                <textarea id="message" name="message" placeholder="Your message here..." rows="4" required></textarea>
                             </div>
                             <button class="submit-btn" type="submit">Send Message</button>
+                            <p class="form-status" id="form-status"></p>
                         </form>
+                        <div class="alternative-contact">
+                            <p>Or reach me directly at:</p>
+                            <a href="mailto:anujck45@gmail.com?subject=Portfolio Contact" class="email-link">anujck45@gmail.com</a>
+                        </div>
                     </div>
                 </div>
 
