@@ -1,103 +1,16 @@
-# Anuj Kulkarni — Professional Portfolio
+# My Portfolio
 
-A sleek, fully functional, and responsive personal portfolio website showcasing my expertise as a Data Science & Machine Learning Engineer. Built with modern web technologies and optimized for all devices.
+A personal portfolio website showcasing my work and skills.
 
-## ✨ Features
+## Overview
 
-### Core Sections
-- **Hero Section** — Engaging introduction with smooth scroll indicator
-- **About Me** — Professional overview with quick statistics (5+ ML Projects, 95%+ Avg Accuracy, 13 Open Source PRs)
-- **Tech Stack Cloud** — Interactive skill tags with floating animations
-- **Project Case Studies** — Detailed project cards with links and technology tags
-- **Medium Blog** — Featured article integration
-- **Experience Timeline** — Professional milestones and contributions
-- **Contact Form** — Fully functional form with Web3Forms integration
-- **Responsive Navigation** — Mobile-optimized menu with smooth transitions
+This is a simple portfolio built with HTML, CSS, and JavaScript. It displays my projects, experience, and contact information in a clean and organized way.
 
-### Interactive Features
-- 🌓 **Dark/Light Theme Toggle** — Persistent theme selection with localStorage
-- ✨ **Particle Network Background** — Interactive canvas animation with mouse tracking
-- 🎯 **Smooth Scroll Navigation** — One-page smooth scrolling with section indicators
-- 📱 **Mobile Responsive** — Optimized for all screen sizes (mobile, tablet, desktop)
-- ⬆️ **Scroll-to-Top Button** — Fixed button appears on scroll for easy navigation
-- 🎨 **Smooth Animations** — Fade-in effects, hover interactions, and transitions
-- 🔗 **Intersection Observer** — Lazy animation triggering as sections enter viewport
-- 📲 **Mobile Menu** — Hamburger menu for seamless mobile navigation
+## Structure
 
-## 🚀 Live Site
-
-- **Hosted on Vercel**: https://anuj-kulkarni-portfolio.vercel.app/
-
-## 📋 What This Portfolio Includes
-
-| Section | Features |
-|---------|----------|
-| **Hero** | Name, title, call-to-action buttons, scroll indicator |
-| **About** | Bio, expertise overview, quick statistics |
-| **Skills** | Interactive tag cloud with proficiency levels |
-| **Projects** | Case studies with images, descriptions, and repository links |
-| **Blog** | Medium article highlights |
-| **Experience** | Timeline of milestones and contributions |
-| **Contact** | Email form with real-time feedback |
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **HTML5** — Semantic markup with accessibility features
-- **CSS3** — Advanced styling with:
-  - CSS Grid & Flexbox layouts
-  - CSS Animations & Transitions
-  - CSS Variables for theming
-  - Media queries for responsiveness
-- **JavaScript (ES6+)** — Modern JavaScript with:
-  - Intersection Observer API
-  - Canvas API for particle animations
-  - LocalStorage for persistence
-  - Async/await for form submission
-
-### Backend/Services
-- **Web3Forms** — Contact form submission service
-- **GitHub API** — Resume and project links
-
-### Deployment
-- **Vercel** — Hosting and continuous deployment
-
-## 📦 Project Structure
-
-```
-Portfolio/
-├── index.html          # Main HTML file with all sections
-├── styles.css          # Comprehensive styling and animations
-├── script.js           # Interactive features and animations
-├── README.md           # Documentation (this file)
-└── .gitignore          # Git configuration
-```
-
-## 🎨 Design Highlights
-
-### Color Scheme (Dark Mode)
-```
-Primary Blue:      #0d59f2
-Background:        #101622
-Text Primary:      #f8fafc
-Text Muted:        #94a3b8
-Accent Cyan:       #22d3ee
-```
-
-### Color Scheme (Light Mode)
-```
-Primary Blue:      #2563eb
-Background:        #f3f4f6
-Text Primary:      #1e293b
-Text Muted:        #64748b
-```
-
-### Typography
-- **Font**: Space Grotesk (Google Fonts)
-- **Weights**: 300, 400, 500, 600, 700, 900
-- **Hierarchy**: Professional and readable
-
-## 🚀 Getting Started
+- `index.html` - Main page
+- `styles.css` - Styling
+- `script.js` - Functionality
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
