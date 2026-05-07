@@ -1,309 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <title>Anuj Kulkarni Portfolio with Animated Skills</title>
-        <link href="https://fonts.googleapis.com" rel="preconnect"/>
-        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
-        <link rel="stylesheet" href="styles.css"/>
-    </head>
-    <body>
-        <canvas id="particles-canvas"></canvas>
-        <header>
-            <div class="header-content">
-                <a class="logo" href="#hero">
-                    <span class="logo-accent">//</span> ANUJ KULKARNI
-                </a>
-                <nav>
-                    <a href="#hero">/home</a>
-                    <a href="#skills">/skills</a>
-                    <a href="#projects">/projects</a>
-                    <a href="#blog">/blog</a>
-                    <a href="#experience">/experience</a>
-                    <a href="#contact">/contact</a>
-                </nav>
-                <div class="header-actions">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                        <span class="r1"></span>
-                        <span class="r2"></span>
-                        <!-- Sun icon (light mode) -->
-                        <svg class="theme-icon sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
-                            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                                <line x1="12" y1="1.5" x2="12" y2="5"></line>
-                                <line x1="12" y1="19" x2="12" y2="22.5"></line>
-                                <line x1="1.5" y1="12" x2="5" y2="12"></line>
-                                <line x1="19" y1="12" x2="22.5" y2="12"></line>
-                                <line x1="4.22" y1="4.22" x2="6.7" y2="6.7"></line>
-                                <line x1="17.3" y1="17.3" x2="19.78" y2="19.78"></line>
-                                <line x1="4.22" y1="19.78" x2="6.7" y2="17.3"></line>
-                                <line x1="17.3" y1="6.7" x2="19.78" y2="4.22"></line>
-                            </g>
-                        </svg>
-                        <!-- Moon icon (dark mode) -->
-                        <svg class="theme-icon moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79z" fill="currentColor"></path>
-                        </svg>
-                    </button>
-                    <button class="menu-icon">☰</button>
-                </div>
-            </div>
-        </header>
-
-        <div class="main-content">
-            <div class="container">
-                <!-- Hero Section -->
-                <div id="hero">
-                    <div class="hero-content">
-                        <div class="hero-text">
-                            <h1>Anuj Kulkarni</h1>
-                            <h2 class="subtitle">Data Science &amp; Machine Learning Engineer</h2>
-                            <p class="description">
-                                Transforming raw data into intelligent insights through machine learning and advanced analytics.
-                            </p>
-                        </div>
-                        <div class="hero-3d-container">
-                            <div class="model-viewer-placeholder">
-                                <div class="model-viewer-content">
-                                    <div class="neural-network">
-                                        <svg viewBox="0 0 240 180" class="neural-svg">
-                                            <!-- Layer 1 to Layer 2 connections -->
-                                            <line x1="30" y1="60" x2="90" y2="40" class="synapse"/>
-                                            <line x1="30" y1="60" x2="90" y2="90" class="synapse"/>
-                                            <line x1="30" y1="60" x2="90" y2="140" class="synapse"/>
-                                            <line x1="30" y1="120" x2="90" y2="40" class="synapse"/>
-                                            <line x1="30" y1="120" x2="90" y2="90" class="synapse"/>
-                                            <line x1="30" y1="120" x2="90" y2="140" class="synapse"/>
-                                            
-                                            <!-- Layer 2 to Layer 3 connections -->
-                                            <line x1="90" y1="40" x2="150" y2="50" class="synapse"/>
-                                            <line x1="90" y1="40" x2="150" y2="90" class="synapse"/>
-                                            <line x1="90" y1="40" x2="150" y2="130" class="synapse"/>
-                                            <line x1="90" y1="90" x2="150" y2="50" class="synapse"/>
-                                            <line x1="90" y1="90" x2="150" y2="90" class="synapse"/>
-                                            <line x1="90" y1="90" x2="150" y2="130" class="synapse"/>
-                                            <line x1="90" y1="140" x2="150" y2="50" class="synapse"/>
-                                            <line x1="90" y1="140" x2="150" y2="90" class="synapse"/>
-                                            <line x1="90" y1="140" x2="150" y2="130" class="synapse"/>
-                                            
-                                            <!-- Layer 3 to Layer 4 connections -->
-                                            <line x1="150" y1="50" x2="210" y2="90" class="synapse"/>
-                                            <line x1="150" y1="90" x2="210" y2="90" class="synapse"/>
-                                            <line x1="150" y1="130" x2="210" y2="90" class="synapse"/>
-                                            
-                                            <!-- Input Layer -->
-                                            <circle cx="30" cy="60" r="8" class="neuron input"/>
-                                            <circle cx="30" cy="120" r="8" class="neuron input"/>
-                                            
-                                            <!-- Hidden Layer 1 -->
-                                            <circle cx="90" cy="40" r="8" class="neuron hidden"/>
-                                            <circle cx="90" cy="90" r="8" class="neuron hidden"/>
-                                            <circle cx="90" cy="140" r="8" class="neuron hidden"/>
-                                            
-                                            <!-- Hidden Layer 2 -->
-                                            <circle cx="150" cy="50" r="8" class="neuron hidden"/>
-                                            <circle cx="150" cy="90" r="8" class="neuron hidden"/>
-                                            <circle cx="150" cy="130" r="8" class="neuron hidden"/>
-                                            
-                                            <!-- Output Layer -->
-                                            <circle cx="210" cy="90" r="8" class="neuron output"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="model-label">Neural Network</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://github.com/steam-bell-92" target="_blank" class="btn btn-secondary" title="GitHub Profile">
-                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg> GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/anuj-chandrakant-kulkarni" target="_blank" class="btn btn-secondary" title="LinkedIn Profile">
-                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg> LinkedIn
-                        </a>
-                        <a href="https://github.com/steam-bell-92/Resume/raw/main/Anuj_Kulkarni_Resume.pdf" download="Anuj_Kulkarni_Resume.pdf" class="btn btn-primary" title="Download Resume">
-                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg> Download Resume
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Skills Section -->
-                <div id="skills">
-                    <h2 class="section-header">// Tech Stack Cloud</h2>
-                    <div class="skills-cloud-container">
-                        <div class="skill-tag skill-large" data-level="expert">Python</div>
-                        <div class="skill-tag skill-medium" data-level="advanced">NumPy</div>
-                        <div class="skill-tag skill-large" data-level="expert">Pandas</div> 
-                        <div class="skill-tag skill-large" data-level="expert">Scikit-Learn</div>
-                        <div class="skill-tag skill-medium" data-level="advanced">Matplotlib</div>
-                        <div class="skill-tag skill-medium" data-level="advanced">Git</div>
-                        <div class="skill-tag skill-small" data-level="intermediate">HTML/CSS</div>
-                        <div class="skill-tag skill-medium" data-level="advanced">Seaborn</div>
-                        <div class="skill-tag skill-small" data-level="intermediate">TensorFlow</div>
-                        <div class="skill-tag skill-medium" data-level="advanced">Plotly</div>
-                        <div class="skill-tag skill-medium" data-level="advanced">Jupyter</div>
-                    </div>
-                </div>
-
-                <!-- Projects Section -->
-                <div id="projects">
-                    <h2 class="section-header">// Project Case Studies</h2>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                            <div>
-                                <p class="project-title">Occupancy Detection Using Intel Sensors</p>
-                                <p class="project-description">
-                                    Built a machine learning classifier to predict room occupancy using Intel Lab sensor data including temperature, humidity, and light readings with 95%+ accuracy.
-                                    <span class="status-completed">Status: Completed.</span>
-                                </p>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" class="project-link" title="View Repository">
-                                    <span>📍 Repository</span>
-                                </a>
-                            </div>
-                            <div class="tag-container">
-                                <span class="tag">Python</span>
-                                <span class="tag">Scikit-Learn</span>   
-                                <span class="tag">Sensor Data Analytics</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                            <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                            <div>
-                                <p class="project-title">Behavioral Threat Detection System</p>
-                                <p class="project-description">
-                                    Binary classifier for fraud detection on imbalanced data (82:18 split). Optimized XGBoost for ROC-AUC to minimize false negatives.
-                                    <span class="status-completed">Status: Completed.</span>
-                                </p>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/steam-bell-92/Unmasking_Team_Rocket" target="_blank" class="project-link" title="View Repository">
-                                    <span>📍 Repository</span>
-                                </a>
-                            </div>
-                            <div class="tag-container">
-                                <span class="tag">Python</span>
-                                <span class="tag">Imbalanced Dataset</span>
-                                <span class="tag">Security</span>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-
-                <!-- Blog Section -->
-                <div id="blog">
-                    <h2 class="section-header">// Medium Blog</h2>
-                    <div class="blog-container">
-                        <div class="blog-card">
-                            <div class="blog-icon">
-                                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                    <polyline points="14 2 14 8 20 8"/>
-                                    <line x1="16" y1="13" x2="8" y2="13"/>
-                                    <line x1="16" y1="17" x2="8" y2="17"/>
-                                    <polyline points="10 9 9 9 8 9"/>
-                                </svg>
-                            </div>
-                            <div class="blog-content">
-                                <h3 class="blog-title">Brewing the Perfect Model with Chai 🍵</h3>
-                                <p class="blog-description">
-                                    <strong>Featured Article:</strong> Grid Search CV explained through the art of making chai! Learn hyperparameter tuning by understanding how different ingredients (hyperparameters) combine to create the perfect cup from avoiding overfitting (overloaded chai) to preventing underfitting (plain hot water). Complete with hands-on code examples using scikit-learn.
-                                </p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">📅 Jul 21, 2025</span>
-                                    <span class="blog-read-time">☕ 5 min read</span>
-                                </div>
-                                <a href="https://medium.com/@anujck45/brewing-the-perfect-model-grid-search-cv-explained-with-chai-37ea85237d6f" target="_blank" class="btn btn-primary blog-btn">
-                                    Read on Medium
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience Section -->
-                <div id="experience">
-                    <h2 class="section-header">&gt; git log --oneline</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <p class="timeline-title">CAD &amp; 3D Printing Club</p>
-                            <p class="timeline-subtitle">Member</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <p class="timeline-title">BitByte Summer of Code</p>
-                            <p class="timeline-subtitle">ML Contributor</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <p class="timeline-title">Hacktoberfest 2025</p>
-                            <p class="timeline-subtitle">Super Contributor (13 PRs Merged)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Section -->
-                <div id="contact">
-                    <h2 class="section-header">// Contact</h2>
-                    <div class="contact-form">
-                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                            <input type="hidden" name="access_key" value="72f4760a-04b5-47b5-b8a5-ba80ad361d8b" />
-                            <input type="hidden" name="subject" value="New Portfolio Contact" />
-                            <input type="hidden" name="from_name" value="Portfolio Website" />
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input id="name" name="name" placeholder="Your Name" type="text" required/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input id="email" name="email" placeholder="your.email@domain.com" type="email" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input id="subject" name="subject" placeholder="Project Inquiry" type="text" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" placeholder="Your message here..." rows="4" required></textarea>
-                            </div>
-                            <button class="submit-btn" type="submit">Send Message</button>
-                            <p class="form-status" id="form-status"></p>
-                        </form>
-                        <div class="alternative-contact">
-                            <p>Or reach me directly at:</p>
-                            <a href="mailto:anujck45@gmail.com" class="email-link">anujck45@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Footer -->
-                <footer>
-                    <div class="footer-content">
-                        <p class="footer-text">© 2025 Anuj Kulkarni</p>
-                        <a class="footer-link" href="https://anujck.vercel.app/">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/>
-                            </svg> Archive
-                        </a>
-                    </div>
-                </footer>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Anuj Kulkarni - Data Science & Machine Learning Engineer"/>
+    <meta name="theme-color" content="#6366f1"/>
+    <title>Anuj Kulkarni | ML Engineer</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-letter">Anuj</span> K
+            </a>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#projects" class="nav-link">Projects</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </g>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79z" fill="currentColor"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </div>
+    </header>
 
-        <script src="script.js"></script>
-    </body>
+    <main>
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>Anuj Kulkarni</h1>
+                    <p class="hero-subtitle">Data Science & ML Engineer</p>
+                    <p class="hero-desc">Building intelligent solutions with data. Specialized in machine learning, statistical analysis, and solving real-world problems.</p>
+                    <div class="hero-buttons">
+                        <a href="https://github.com/steam-bell-92" target="_blank" class="btn btn-primary">GitHub</a>
+                        <a href="https://linkedin.com/in/anuj-chandrakant-kulkarni" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                        <a id="download-resume" href="https://github.com/steam-bell-92/Resume/raw/main/Anuj_Kulkarni_Resume.pdf" class="btn btn-tertiary">Resume</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="featured-article">
+                        <div class="article-badge">Featured</div>
+                        <div class="article-icon">🍵</div>
+                        <h3 class="article-title">Brewing the Perfect Model with Chai</h3>
+                        <p class="article-excerpt">Grid Search CV explained through the art of making chai! Learn hyperparameter tuning with hands-on code examples.</p>
+                        <div class="article-info">
+                            <span class="article-date">Jul 21, 2025</span>
+                            <span class="article-read">5 min read</span>
+                        </div>
+                        <a href="https://medium.com/@anujck45" target="_blank" class="article-cta">Read on Medium →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section about">
+            <div class="section-inner">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>I'm a passionate ML engineer focused on building scalable solutions that transform raw data into actionable insights. With expertise in Python, scikit-learn, and data analysis, I've developed 10+ projects. I'm also an active open-source contributor, particularly to Recode Hive.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-num">10+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-num">50+</div>
+                            <div class="stat-label">MRs & issues</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section skills">
+            <div class="section-inner">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <h3>ML & Data</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">NumPy</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Visualization</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">Plotly</span>
+                            <span class="tag">Seaborn</span>
+                            <span class="tag">Jupyter</span>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Tools</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section projects">
+            <div class="section-inner">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Occupancy Detection</h3>
+                            <span class="badge">ML</span>
+                        </div>
+                        <p>ML classifier predicting room occupancy from sensor data with 95%+ accuracy.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-Learn</span>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://intel-sensors.vercel.app/" target="_blank" class="project-link project-link-live">Live Demo</a>
+                            <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" class="project-link project-link-repo">GitHub Repo</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Threat Detection</h3>
+                            <span class="badge">Security</span>
+                        </div>
+                        <p>Binary classifier for fraud detection on imbalanced data optimized for ROC-AUC.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>XGBoost</span>
+                            <span>Classification</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://huggingface.co/spaces/steam-bell-92/Unmasking_Team_Rocket" target="_blank" class="project-link project-link-live">Live Demo</a>
+                            <a href="https://github.com/steam-bell-92/Unmasking_Team_Rocket" target="_blank" class="project-link project-link-repo">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Anuj Kulkarni. All rights reserved.</p>
+            <div class="footer-right">
+                <div class="social-icons">
+                <a href="https://github.com/steam-bell-92" target="_blank" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/anuj-chandrakant-kulkarni" target="_blank" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/obscura.nuj" target="_blank" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM17.5 6a.9.9 0 1 1 0 1.8A.9.9 0 0 1 17.5 6z"/>
+                    </svg>
+                </a>
+                </div>
+                <a href="https://steam-bell-92.github.io/code/index.html" target="_blank" class="archive-link">Archive Portfolio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
