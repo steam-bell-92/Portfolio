@@ -6,9 +6,6 @@
     <meta name="description" content="Anuj Kulkarni - Data Science & Machine Learning Engineer"/>
     <meta name="theme-color" content="#0b1020"/>
     <title>Anuj Kulkarni | ML Engineer</title>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css"/>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
@@ -24,8 +21,9 @@
                 <a href="#projects" class="nav-link">Projects</a>
             </nav>
             <div class="nav-actions">
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open sidebar" aria-expanded="false">
                     <i data-feather="menu"></i>
+                    <span class="mobile-menu-btn-label">Extras</span>
                 </button>
             </div>
         </div>
@@ -40,11 +38,6 @@
                     <h1>Anuj Kulkarni</h1>
                     <p class="hero-subtitle">Turning messy data into something insightful</p>
                     <p class="hero-desc">I build focused ML systems, analysis tools, and experiments that move from notebook to deployment while maintaining clarity.</p>
-                    <div class="hero-pills">
-                        <span class="pill"><i data-feather="zap"></i> Applied ML</span>
-                        <span class="pill"><i data-feather="bar-chart-2"></i> Analytics</span>
-                        <span class="pill"><i data-feather="truck"></i> Shipping</span>
-                    </div>
                     <div class="hero-buttons">
                         <a href="https://github.com/steam-bell-92" target="_blank" class="btn btn-primary">GitHub</a>
                         <a href="https://linkedin.com/in/anuj-chandrakant-kulkarni" target="_blank" class="btn btn-secondary">LinkedIn</a>
@@ -55,7 +48,7 @@
                     <div class="feature-stack">
                         <article class="featured-card">
                             <div class="card-top">
-                                <span class="card-kicker"><i data-feather="book"></i> Latest essay</span>
+                                <span class="card-kicker"><i data-feather="book"></i>Technical Blog</span>
                                 <span class="article-badge">Featured</span>
                             </div>
                             <h3 class="article-title">Brewing the Perfect Model with Chai</h3>
@@ -70,6 +63,59 @@
                 </div>
             </div>
         </section>
+
+        <template id="sidebar-template">
+            <aside class="sidebar-card">
+                <div class="card-top">
+                    <span class="card-kicker"><i data-feather="award"></i> At a glance</span>
+                </div>
+                <div class="sidebar-tabs" role="tablist" aria-label="Sidebar sections">
+                    <button type="button" class="sidebar-tab is-active" data-sidebar-tab="experience">Experience</button>
+                    <button type="button" class="sidebar-tab" data-sidebar-tab="volunteering">Volunteering & Open Source</button>
+                    <button type="button" class="sidebar-tab" data-sidebar-tab="achievements">Achievements</button>
+                    <button type="button" class="sidebar-tab" data-sidebar-tab="side-skills">Side Skills</button>
+                </div>
+
+                <div class="sidebar-panels">
+                    <section class="sidebar-panel is-active" data-sidebar-panel="experience" role="tabpanel">
+                        <h4><i data-feather="briefcase"></i> Experience</h4>
+                        <ul class="sidebar-list">
+                            <li>Completed Andrew Ng's <a href="https://github.com/steam-bell-92/steam-bell-92/blob/main/certs/Coursera%20-%20Machine%20Learning.pdf" target="_blank" rel="noreferrer">Machine Learning Specialization</a> on Coursera in May 2025.</li>
+                            <li>Independent projects and technical exploration across AI/ML, frontend development, APIs, GitHub automation, and open-source tooling.</li>
+                            <li>Built workflows around Git, GitHub, CI/CD concepts, and deployment ecosystems.</li>
+                        </ul>
+                    </section>
+
+                    <section class="sidebar-panel" data-sidebar-panel="volunteering" role="tabpanel" hidden>
+                        <h4><i data-feather="users"></i> Volunteering & Open Source</h4>
+                        <ul class="sidebar-list">
+                            <li>Active contributor at <a href="https://github.com/recodehive/recode-website" target="_blank" rel="noreferrer">Recode Hive</a>.</li>
+                            <li>Open source contributor and maintainer for GSSoC 2025 and GSSoC 2026 projects.</li>
+                            <li>Contributed during Hacktoberfest 2025 and earned Super Contributor recognition.</li>
+                            <li>Club member at the CAD & 3D Printing Club, IIITDM Jabalpur.</li>
+                        </ul>
+                    </section>
+
+                    <section class="sidebar-panel" data-sidebar-panel="achievements" role="tabpanel" hidden>
+                        <h4><i data-feather="star"></i> Achievements</h4>
+                        <ul class="sidebar-list">
+                            <li>AIR 4 in Sim-U-Later, IIT BHU Technex national-level CAD & simulation competition, as part of a team.</li>
+                            <li>Best Innovator Award in CAD MANIA(College event) for a magnetic hand gripper design using Autodesk Fusion 360.</li>
+                            <li>Rating of 1602(3 ★) on CodeChef.</li>
+                        </ul>
+                    </section>
+
+                    <section class="sidebar-panel" data-sidebar-panel="side-skills" role="tabpanel" hidden>
+                        <h4><i data-feather="box"></i> Side Skills</h4>
+                        <ul class="sidebar-list">
+                            <li>3D modelling in Autodesk Fusion 360.</li>
+                            <li>Mechanical design and CAD in SolidWorks.</li>
+                            <li>3D printing workflows with Prusa and Anycubic software.</li>
+                        </ul>
+                    </section>
+                </div>
+            </aside>
+        </template>
 
         <!-- Skills -->
         <section id="skills" class="section skills">
@@ -96,7 +142,6 @@
                             <span class="tag">Scikit-Learn</span>
                             <span class="tag">Pandas</span>
                             <span class="tag">NumPy</span>
-                            <span class="tag">TensorFlow</span>
                         </div>
                     </div>
                     <div class="skill-box">
@@ -134,40 +179,79 @@
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-title-block">
-                                <i data-feather="map-pin"></i>
-                                <h3>Occupancy Detection</h3>
+                                <i data-feather="activity"></i>
+                                <h3>Intel Sensors</h3>
                             </div>
                             <span class="badge">ML</span>
                         </div>
-                        <p>ML classifier predicting room occupancy from sensor data with 95%+ accuracy.</p>
+                        <p>Room Occupancy Prediction using Random Forest (Supervised) + K-Means (Unsupervised) on real Intel sensor data.</p>
                         <div class="project-tech">
                             <span>Python</span>
                             <span>Scikit-Learn</span>
-                            <span>Analytics</span>
+                            <span>Random Forest</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://intel-sensors.vercel.app/" target="_blank" class="project-link project-link-live">Live Demo</a>
-                            <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" class="project-link project-link-repo">GitHub Repo</a>
+                            <a href="https://intel-sensors.vercel.app/" target="_blank" rel="noreferrer" class="project-link project-link-live">Live Demo</a>
+                            <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
                         </div>
                     </div>
 
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-title-block">
-                                <i data-feather="shield"></i>
-                                <h3>Threat Detection</h3>
+                                <i data-feather="home"></i>
+                                <h3>House Price Prediction</h3>
                             </div>
-                            <span class="badge">Security</span>
+                            <span class="badge">Regression</span>
                         </div>
-                        <p>Binary classifier for fraud detection on imbalanced data optimized for ROC-AUC.</p>
+                        <p>House Price Prediction with multivariate Linear Regression (ElasticNet) and interactive website.</p>
                         <div class="project-tech">
                             <span>Python</span>
-                            <span>XGBoost</span>
-                            <span>Classification</span>
+                            <span>ElasticNet</span>
+                            <span>Web Interface</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://huggingface.co/spaces/steam-bell-92/Unmasking_Team_Rocket" target="_blank" class="project-link project-link-live">Live Demo</a>
-                            <a href="https://github.com/steam-bell-92/Unmasking_Team_Rocket" target="_blank" class="project-link project-link-repo">GitHub Repo</a>
+                            <a href="https://steam-bell-92.github.io/House-Price-Prediction/WEBSITE/Housing_front.html" target="_blank" rel="noreferrer" class="project-link project-link-live">Live Demo</a>
+                            <a href="https://github.com/steam-bell-92/House-Price-Prediction" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title-block">
+                                <i data-feather="music"></i>
+                                <h3>Spotify</h3>
+                            </div>
+                            <span class="badge">Clustering</span>
+                        </div>
+                        <p>Music Clustering on a large Spotify dataset (1.2M+ tracks) using unsupervised learning techniques.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Clustering</span>
+                            <span>Large-Scale Data</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/steam-bell-92/Spotify" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title-block">
+                                <i data-feather="trending-up"></i>
+                                <h3>Rating Converter</h3>
+                            </div>
+                            <span class="badge">Tool</span>
+                        </div>
+                        <p>CodeChef ↔ Codeforces Rating Converter using Linear Regression with web interface.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Linear Regression</span>
+                            <span>Web App</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://steam-bell-92.github.io/Rating-Converter/WEBSITE/index.html" target="_blank" rel="noreferrer" class="project-link project-link-live">Live Demo</a>
+                            <a href="https://github.com/steam-bell-92/Rating-Converter" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
                         </div>
                     </div>
                 </div>
@@ -175,7 +259,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer --> 
     <footer class="footer">
         <div class="footer-container">
             <p>&copy; 2026 Anuj Kulkarni. All rights reserved.</p>
@@ -201,5 +285,6 @@
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

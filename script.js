@@ -6,7 +6,6 @@ if (window.feather) {
 
 // Mobile Menu
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const navMenu = document.querySelector('.nav-menu');
 let isMobileMenuOpen = false;
 let menuOverlay = null;
 
@@ -16,6 +15,8 @@ function closeMobileMenu() {
         menuOverlay = null;
     }
     isMobileMenuOpen = false;
+    document.body.classList.remove('sidebar-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
 }
 
 mobileMenuBtn.addEventListener('click', () => {
@@ -25,27 +26,71 @@ mobileMenuBtn.addEventListener('click', () => {
     }
 
     isMobileMenuOpen = true;
+    document.body.classList.add('sidebar-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
     menuOverlay = document.createElement('div');
     menuOverlay.className = 'mobile-menu-overlay';
+
+    const sidebarTemplate = document.getElementById('sidebar-template');
+    const sidebarClone = sidebarTemplate && sidebarTemplate.content.firstElementChild
+        ? sidebarTemplate.content.firstElementChild.cloneNode(true)
+        : null;
+
     menuOverlay.innerHTML = `
         <div class="mobile-menu-content">
-            <a href="#hero" class="nav-link">Home</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
+            <div class="mobile-menu-header">
+                <button type="button" class="mobile-menu-close" aria-label="Close sidebar">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-sidebar-slot"></div>
         </div>
     `;
+
+    if (sidebarClone) {
+        sidebarClone.classList.add('sidebar-card--drawer');
+        const sidebarSlot = menuOverlay.querySelector('.mobile-menu-sidebar-slot');
+        sidebarSlot.appendChild(sidebarClone);
+
+        const sidebarTabs = sidebarClone.querySelectorAll('[data-sidebar-tab]');
+        const sidebarPanels = sidebarClone.querySelectorAll('[data-sidebar-panel]');
+
+        const setActivePanel = (tabName) => {
+            sidebarTabs.forEach((tab) => {
+                const isActive = tab.dataset.sidebarTab === tabName;
+                tab.classList.toggle('is-active', isActive);
+                tab.setAttribute('aria-pressed', String(isActive));
+            });
+
+            sidebarPanels.forEach((panel) => {
+                const isActive = panel.dataset.sidebarPanel === tabName;
+                panel.classList.toggle('is-active', isActive);
+                panel.hidden = !isActive;
+            });
+        };
+
+        sidebarTabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                setActivePanel(tab.dataset.sidebarTab);
+            });
+        });
+
+        setActivePanel('experience');
+    }
+
     document.body.appendChild(menuOverlay);
+
+    if (window.feather) {
+        feather.replace();
+    }
+
+    const closeButton = menuOverlay.querySelector('.mobile-menu-close');
+    closeButton.addEventListener('click', closeMobileMenu);
 
     menuOverlay.addEventListener('click', (event) => {
         if (event.target === menuOverlay) {
             closeMobileMenu();
         }
-    });
-
-    menuOverlay.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
     });
 });
 
