@@ -596,7 +596,6 @@ main {
 }
 
 .skill-box {
-    padding: 2rem;
     background: var(--glass-light);
     border: 1px solid var(--glass-border);
     border-radius: 15px;
