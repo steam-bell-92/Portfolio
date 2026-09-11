@@ -145,9 +145,11 @@ const projectDetails = {
         sections: [
             ['Overview', 'An analytics workflow that transforms GitHub repository data into an interactive Power BI dashboard.'],
             ['Goal', 'Explore repository data to identify trends and patterns in open-source activity.'],
-            ['Approach', 'Collect GitHub data through the GitHub REST API, then shape and analyze it with Power BI and DAX.'],
-            ['Data', 'GitHub repository data collected through the GitHub REST API.'],
-            ['Stack', 'Power BI, GitHub REST API, DAX']
+            ['Approach', 'API extraction -> Power Query transformation -> star-schema data modeling -> DAX measures -> Power BI dashboard.'],
+            ['Analysis', 'Repository activity, issues, pull requests, contributors, and development KPIs.'],
+            ['Metrics', 'The dashboard covers Total Issues, Total Pull Requests, Total Commits, Total Contributors, Issue Closure Rate, Merge Rate, and average issue and pull request processing times.'],
+            ['Current status', 'This is the current first iteration, focused on the core dashboard and analytics workflow.'],
+            ['Stack', 'Power BI, Power Query, GitHub REST API, DAX, star-schema modeling']
         ],
         links: [
             ['Live Dashboard', 'https://app.powerbi.com/view?r=eyJrIjoiYWEyYTZiMjQtNjljMS00NzJmLTlmN2MtOTMzNWRmNGVkOWViIiwidCI6Ijg0MWU5OTFmLTE3MzAtNDMzZi04MmJhLWVhNzg5NTAwNGZmYSJ9'],
@@ -159,9 +161,10 @@ const projectDetails = {
         sections: [
             ['Overview', 'A business intelligence dashboard for exploring e-shop performance metrics.'],
             ['Goal', 'Turn e-shop data into a clearer view of performance and business metrics.'],
-            ['Analysis', 'Use Power BI and DAX to organize, analyze, and present the available e-shop data.'],
-            ['Dashboard', 'An interactive Power BI dashboard designed for browsing the analysis.'],
-            ['Stack', 'Power BI, DAX']
+            ['Data', 'Sales, customers, products, stores, geographies, dates, and website sessions from CSV sources.'],
+            ['Approach', 'Clean and transform the source data with Power Query, build a relational model, create DAX calculations, and develop the dashboard.'],
+            ['Analysis', 'Sales performance, business KPIs, customer behavior, product and business dimensions, and drill-down analysis.'],
+            ['Stack', 'Power BI, Power Query, DAX, CSV datasets']
         ],
         links: [
             ['Live Dashboard', 'https://app.powerbi.com/view?r=eyJrIjoiYTdkZTlkMDItZTc3Zi00N2ExLWEzYzItNTljN2U3MjFkMGM0IiwidCI6Ijg0MWU5OTFmLTE3MzAtNDMzZi04MmJhLWVhNzg5NTAwNGZmYSJ9'],
@@ -173,9 +176,10 @@ const projectDetails = {
         sections: [
             ['Overview', 'A room occupancy prediction project using Intel sensor data and complementary supervised and unsupervised learning.'],
             ['Problem', 'Predict room occupancy while paying attention to class imbalance and the cost of false negatives.'],
-            ['Data', 'Intel sensor data used for room occupancy analysis.'],
-            ['Approach', 'Use Random Forest for supervised prediction and K-Means for unsupervised exploration.'],
-            ['Evaluation', 'Consider precision, recall, class imbalance, and false negatives when assessing the model.'],
+            ['Data', 'Temperature, humidity, light, and voltage readings from 54 Intel Berkeley Research Lab sensors.'],
+            ['Approach', 'Use Random Forest with 10% bit-flip noise in a key feature, alongside K-Means on the clean features.'],
+            ['Evaluation', 'Consider precision, recall, class imbalance, and false-negative tradeoffs rather than optimizing accuracy alone.'],
+            ['Results', 'Random Forest: ~0.79 accuracy and ~0.78 ROC-AUC. K-Means: ~0.36 post-labeling accuracy, ~0.58 ROC-AUC, and ~0.85 silhouette score.'],
             ['Stack', 'Python, Scikit-Learn, Random Forest, K-Means']
         ],
         links: [
@@ -187,10 +191,11 @@ const projectDetails = {
         title: 'Spotify',
         sections: [
             ['Overview', 'A music clustering project that explores a large Spotify dataset with unsupervised learning.'],
-            ['Goal', 'Find useful groupings across more than 1.2 million tracks.'],
-            ['Data', 'A Spotify dataset containing 1.2M+ tracks.'],
-            ['Approach', 'Apply K-Means clustering to explore groups in the track data and its audio features.'],
-            ['Stack', 'Python, K-Means, large-scale data analysis']
+            ['Goal', 'Group tracks based on audio characteristics.'],
+            ['Data', 'The Spotify Tracks Dataset from Kaggle, documented as a 12M-song dataset.'],
+            ['Approach', 'Clean the data, select audio features, scale them with MinMaxScaler, apply K-Means, and use the Elbow Method to review cluster count.'],
+            ['Evaluation', 'Calinski-Harabasz ~236753.94, Davies-Bouldin ~1.21, and Silhouette ~0.30.'],
+            ['Stack', 'Python, pandas, NumPy, scikit-learn, K-Means, Matplotlib, Seaborn, Plotly']
         ],
         links: [
             ['GitHub Repo', 'https://github.com/steam-bell-92/Spotify']
