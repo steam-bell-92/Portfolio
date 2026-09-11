@@ -4,8 +4,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Anuj Kulkarni - Data Science & Machine Learning Engineer"/>
-    <meta name="theme-color" content="#0b1020"/>
-    <title>Anuj Kulkarni | ML Engineer</title>
+    <meta name="theme-color" content="#f3ecdf"/>
+    <meta property="og:title" content="Anuj Kulkarni | Data Science & Machine Learning"/>
+    <meta property="og:description" content="Data science, machine learning, and analytics projects by Anuj Kulkarni."/>
+    <meta property="og:type" content="website"/>
+    <title>Anuj Kulkarni | Data Science & Machine Learning</title>
     <link rel="stylesheet" href="styles.css"/>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
@@ -21,7 +24,7 @@
                 <a href="#projects" class="nav-link">Projects</a>
             </nav>
             <div class="nav-actions">
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open sidebar" aria-expanded="false">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Extras" aria-expanded="false" aria-controls="extras-drawer">
                     <i data-feather="menu"></i>
                     <span class="mobile-menu-btn-label">Extras</span>
                 </button>
@@ -39,9 +42,10 @@
                     <p class="hero-subtitle">Turning messy data into something insightful</p>
                     <p class="hero-desc">I build focused ML systems, analysis tools, and experiments that move from notebook to deployment while maintaining clarity.</p>
                     <div class="hero-buttons">
-                        <a href="https://github.com/steam-bell-92" target="_blank" class="btn btn-primary">GitHub</a>
-                        <a href="https://linkedin.com/in/anujckulkarni" target="_blank" class="btn btn-secondary">LinkedIn</a>
-                        <a id="download-resume" href="https://github.com/steam-bell-92/Resume/raw/main/Anuj_Kulkarni_Resume.pdf" class="btn btn-tertiary">Resume</a>
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a id="resume-link" href="https://github.com/steam-bell-92/Resume/raw/main/Anuj_Kulkarni_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View resume in a new tab">Resume</a>
+                        <a href="https://github.com/steam-bell-92" target="_blank" rel="noopener noreferrer" class="btn btn-tertiary">GitHub</a>
+                        <a href="https://linkedin.com/in/anujckulkarni" target="_blank" rel="noopener noreferrer" class="btn btn-tertiary">LinkedIn</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -57,7 +61,7 @@
                                 <span class="article-date">Jul 21, 2025</span>
                                 <span class="article-read">5 min read</span>
                             </div>
-                            <a href="https://medium.com/@anujck45" target="_blank" class="article-cta">Read on Medium <i data-feather="arrow-right"></i></a>
+                            <a href="https://medium.com/@anujck45" target="_blank" rel="noopener noreferrer" class="article-cta">Read on Medium <i data-feather="arrow-right"></i></a>
                         </article>
                     </div>
                 </div>
@@ -70,43 +74,43 @@
                     <span class="card-kicker"><i data-feather="award"></i> At a glance</span>
                 </div>
                 <div class="sidebar-tabs" role="tablist" aria-label="Sidebar sections">
-                    <button type="button" class="sidebar-tab is-active" data-sidebar-tab="experience">Experience</button>
-                    <button type="button" class="sidebar-tab" data-sidebar-tab="volunteering">Volunteering & Open Source</button>
-                    <button type="button" class="sidebar-tab" data-sidebar-tab="achievements">Achievements</button>
-                    <button type="button" class="sidebar-tab" data-sidebar-tab="side-skills">Side Skills</button>
+                    <button type="button" class="sidebar-tab is-active" id="extras-tab-experience" data-sidebar-tab="experience" aria-controls="extras-panel-experience" aria-selected="true" role="tab">Experience</button>
+                    <button type="button" class="sidebar-tab" id="extras-tab-volunteering" data-sidebar-tab="volunteering" aria-controls="extras-panel-volunteering" aria-selected="false" role="tab">Volunteering & Open Source</button>
+                    <button type="button" class="sidebar-tab" id="extras-tab-achievements" data-sidebar-tab="achievements" aria-controls="extras-panel-achievements" aria-selected="false" role="tab">Achievements</button>
+                    <button type="button" class="sidebar-tab" id="extras-tab-side-skills" data-sidebar-tab="side-skills" aria-controls="extras-panel-side-skills" aria-selected="false" role="tab">Engineering & Design</button>
                 </div>
 
                 <div class="sidebar-panels">
-                    <section class="sidebar-panel is-active" data-sidebar-panel="experience" role="tabpanel">
-                        <h4><i data-feather="briefcase"></i> Experience</h4>
+                    <section class="sidebar-panel is-active" id="extras-panel-experience" data-sidebar-panel="experience" aria-labelledby="extras-tab-experience" role="tabpanel">
+                        <h4><i data-feather="briefcase"></i> Technical Background</h4>
                         <ul class="sidebar-list">
-                            <li>Completed Andrew Ng's <a href="https://github.com/steam-bell-92/steam-bell-92/blob/main/certs/Coursera%20-%20Machine%20Learning.pdf" target="_blank" rel="noreferrer">Machine Learning Specialization</a> on Coursera in May 2025.</li>
+                            <li>Completed Andrew Ng's Machine Learning Specialization on Coursera in May 2025.</li>
                             <li>Independent projects and technical exploration across AI/ML, frontend development, APIs, GitHub automation, and open-source tooling.</li>
                             <li>Built workflows around Git, GitHub, CI/CD concepts, and deployment ecosystems.</li>
                         </ul>
                     </section>
 
-                    <section class="sidebar-panel" data-sidebar-panel="volunteering" role="tabpanel" hidden>
+                    <section class="sidebar-panel" id="extras-panel-volunteering" data-sidebar-panel="volunteering" aria-labelledby="extras-tab-volunteering" role="tabpanel" hidden>
                         <h4><i data-feather="users"></i> Volunteering & Open Source</h4>
                         <ul class="sidebar-list">
-                            <li>Active contributor at <a href="https://github.com/recodehive/recode-website" target="_blank" rel="noreferrer">Recode Hive</a>.</li>
-                            <li>Open source contributor and maintainer for GSSoC 2025 and GSSoC 2026 projects.</li>
+                            <li>Contributor at <a href="https://github.com/recodehive/recode-website" target="_blank" rel="noopener noreferrer">Recode Hive</a>.</li>
+                            <li>Contributor and maintainer for GirlScript Summer of Code (GSSoC) 2025 and 2026 projects.</li>
                             <li>Contributed during Hacktoberfest 2025 and earned Super Contributor recognition.</li>
                             <li>Club member at the CAD & 3D Printing Club, IIITDM Jabalpur.</li>
                         </ul>
                     </section>
 
-                    <section class="sidebar-panel" data-sidebar-panel="achievements" role="tabpanel" hidden>
+                    <section class="sidebar-panel" id="extras-panel-achievements" data-sidebar-panel="achievements" aria-labelledby="extras-tab-achievements" role="tabpanel" hidden>
                         <h4><i data-feather="star"></i> Achievements</h4>
                         <ul class="sidebar-list">
-                            <li>AIR 4 in Sim-U-Later, IIT BHU Technex national-level CAD & simulation competition, as part of a team.</li>
-                            <li>Best Innovator Award in CAD MANIA(College event) for a magnetic hand gripper design using Autodesk Fusion 360.</li>
-                            <li>Rating of 1602(3 ★) on CodeChef.</li>
+                            <li><strong>AIR 4 — Sim-U-Later, IIT BHU Technex</strong> Secured 4th place nationally in a CAD and simulation competition as part of a team.</li>
+                            <li><strong>Best Innovator Award — CAD MANIA</strong> Designed a magnetic hand gripper using Autodesk Fusion 360.</li>
+                            <li><strong>3★ CodeChef</strong> Rating: 1602.</li>
                         </ul>
                     </section>
 
-                    <section class="sidebar-panel" data-sidebar-panel="side-skills" role="tabpanel" hidden>
-                        <h4><i data-feather="box"></i> Side Skills</h4>
+                    <section class="sidebar-panel" id="extras-panel-side-skills" data-sidebar-panel="side-skills" aria-labelledby="extras-tab-side-skills" role="tabpanel" hidden>
+                        <h4><i data-feather="box"></i> Engineering & Design</h4>
                         <ul class="sidebar-list">
                             <li>3D modelling in Autodesk Fusion 360.</li>
                             <li>Mechanical design and CAD in SolidWorks.</li>
@@ -175,15 +179,20 @@
                     <h2 class="section-title">Selected work</h2>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card">
+                    <div class="project-card project-card-repo" data-project-id="repo-analysis">
                         <div class="project-header">
                             <div class="project-title-block">
                                 <i data-feather="home"></i>
                                 <h3>Repo Analysis</h3>
                             </div>
-                            <span class="badge">Dashboard</span>
+                            <div class="project-header-meta">
+                                <span class="badge">Dashboard</span>
+                                <button type="button" class="project-info-button" data-project-details="repo-analysis" aria-label="View Repo Analysis project details">
+                                    <i data-feather="info" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
-                        <p>Analysis of GitHub repository data to identify trends and patterns.</p>
+                        <p>Built an analytics workflow that transforms GitHub repository data into an interactive Power BI dashboard.</p>
                         <div class="project-tech">
                             <span>Power BI</span>
                             <span>GitHub REST API</span>
@@ -191,58 +200,73 @@
                         </div>
                         <div class="project-actions">
                             <a href="https://app.powerbi.com/view?r=eyJrIjoiYWEyYTZiMjQtNjljMS00NzJmLTlmN2MtOTMzNWRmNGVkOWViIiwidCI6Ijg0MWU5OTFmLTE3MzAtNDMzZi04MmJhLWVhNzg5NTAwNGZmYSJ9"
-                             target="_blank" rel="noreferrer" class="project-link project-link-live">Live Dashboard</a>
-                            <a href="https://steam-bell-92.github.io/open-source-repo-analysis/" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
+                             target="_blank" rel="noopener noreferrer" class="project-link project-link-live">Live Dashboard</a>
+                            <a href="https://github.com/steam-bell-92/open-source-repo-analysis" target="_blank" rel="noopener noreferrer" class="project-link project-link-repo">GitHub Repo</a>
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card project-card-eshop" data-project-id="eshop-dashboard">
                         <div class="project-header">
                             <div class="project-title-block">
                                 <i data-feather="trending-up"></i>
                                 <h3>E-shop Dashboard</h3>
                             </div>
-                            <span class="badge">ETL, Data Analysis</span>
+                            <div class="project-header-meta">
+                                <span class="badge">ETL, Data Analysis</span>
+                                <button type="button" class="project-info-button" data-project-details="eshop-dashboard" aria-label="View E-shop Dashboard project details">
+                                    <i data-feather="info" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
-                        <p>Power BI dashboard for visualizing e-shop data and performance metrics.</p>
+                        <p>Business intelligence dashboard for exploring e-shop performance metrics with Power BI and DAX.</p>
                         <div class="project-tech">
                             <span>Power BI</span>
                             <span>DAX</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://app.powerbi.com/view?r=eyJrIjoiYTdkZTlkMDItZTc3Zi00N2ExLWEzYzItNTljN2U3MjFkMGM0IiwidCI6Ijg0MWU5OTFmLTE3MzAtNDMzZi04MmJhLWVhNzg5NTAwNGZmYSJ9"
-                             target="_blank" rel="noreferrer" class="project-link project-link-live">Live Dashboard</a>
-                            <a href="https://steam-bell-92.github.io/e-shopp-dashboard/" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
+                             target="_blank" rel="noopener noreferrer" class="project-link project-link-live">Live Dashboard</a>
+                            <a href="https://github.com/steam-bell-92/e-shopp-dashboard" target="_blank" rel="noopener noreferrer" class="project-link project-link-repo">GitHub Repo</a>
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card project-card-featured" data-project-id="intel-sensors">
                         <div class="project-header">
                             <div class="project-title-block">
                                 <i data-feather="activity"></i>
                                 <h3>Intel Sensors</h3>
                             </div>
-                            <span class="badge">ML</span>
+                            <div class="project-header-meta">
+                                <span class="badge">ML</span>
+                                <button type="button" class="project-info-button" data-project-details="intel-sensors" aria-label="View Intel Sensors project details">
+                                    <i data-feather="info" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
-                        <p>Room Occupancy Prediction using Random Forest (Supervised) + K-Means (Unsupervised) on real Intel sensor data.</p>
+                        <p>Predicted room occupancy from Intel sensor data with Random Forest and K-Means, considering class imbalance, recall, precision, and false negatives.</p>
                         <div class="project-tech">
                             <span>Python</span>
                             <span>Scikit-Learn</span>
                             <span>Random Forest</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://intel-sensors.vercel.app/" target="_blank" rel="noreferrer" class="project-link project-link-live">Live Demo</a>
-                            <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
+                            <a href="https://intel-sensors.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link project-link-live">Live Demo</a>
+                            <a href="https://github.com/steam-bell-92/Intel_Sensors" target="_blank" rel="noopener noreferrer" class="project-link project-link-repo">GitHub Repo</a>
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card" data-project-id="spotify">
                         <div class="project-header">
                             <div class="project-title-block">
                                 <i data-feather="music"></i>
                                 <h3>Spotify</h3>
                             </div>
-                            <span class="badge">Clustering</span>
+                            <div class="project-header-meta">
+                                <span class="badge">Clustering</span>
+                                <button type="button" class="project-info-button" data-project-details="spotify" aria-label="View Spotify project details">
+                                    <i data-feather="info" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
                         <p>Music Clustering on a large Spotify dataset (1.2M+ tracks) using unsupervised learning techniques.</p>
                         <div class="project-tech">
@@ -251,7 +275,7 @@
                             <span>Large-Scale Data</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/steam-bell-92/Spotify" target="_blank" rel="noreferrer" class="project-link project-link-repo">GitHub Repo</a>
+                            <a href="https://github.com/steam-bell-92/Spotify" target="_blank" rel="noopener noreferrer" class="project-link project-link-repo">GitHub Repo</a>
                         </div>
                     </div>
                 </div>
@@ -259,29 +283,44 @@
         </section>
     </main>
 
+    <div class="project-details-overlay" id="project-details-dialog" role="dialog" aria-modal="true" aria-labelledby="project-details-title" hidden>
+        <div class="project-details-panel">
+            <div class="project-details-header">
+                <div>
+                    <p class="eyebrow">Project details</p>
+                    <h2 id="project-details-title"></h2>
+                </div>
+                <button type="button" class="project-details-close" id="project-details-close" aria-label="Close project details">
+                    <i data-feather="x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="project-details-content" id="project-details-content"></div>
+        </div>
+    </div>
+
     <!-- Footer --> 
     <footer class="footer">
         <div class="footer-container">
             <p>&copy; 2026 Anuj Kulkarni. All rights reserved.</p>
             <div class="footer-right">
                 <div class="social-icons">
-                <a href="https://github.com/steam-bell-92" target="_blank" aria-label="GitHub">
+                <a href="https://github.com/steam-bell-92" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.111.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.8 24 17.3 24 12c0-6.63-5.373-12-12-12z"/>
                     </svg>
                 </a>
-                <a href="https://linkedin.com/in/anujckulkarni" target="_blank" aria-label="LinkedIn">
+                <a href="https://linkedin.com/in/anujckulkarni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                 </a>
-                <a href="https://instagram.com/obscura.nuj" target="_blank" aria-label="Instagram">
+                <a href="https://instagram.com/obscura.nuj" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM17.5 6a.9.9 0 1 1 0 1.8A.9.9 0 0 1 17.5 6z"/>
                     </svg>
                 </a>
                 </div>
-                <a href="https://steam-bell-92.github.io/code/index.html" target="_blank" class="archive-link">Archive Portfolio</a>
+                <a href="https://steam-bell-92.github.io/code/index.html" target="_blank" rel="noopener noreferrer" class="archive-link">Archive Portfolio</a>
             </div>
         </div>
     </footer>

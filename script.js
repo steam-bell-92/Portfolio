@@ -8,6 +8,13 @@ if (window.feather) {
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 let isMobileMenuOpen = false;
 let menuOverlay = null;
+let previouslyFocusedElement = null;
+
+function setBackgroundInert(isInert) {
+    document.querySelectorAll('body > header, body > main, body > footer').forEach((element) => {
+        element.inert = isInert;
+    });
+}
 
 function closeMobileMenu() {
     if (menuOverlay) {
@@ -17,6 +24,11 @@ function closeMobileMenu() {
     isMobileMenuOpen = false;
     document.body.classList.remove('sidebar-open');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    setBackgroundInert(false);
+    if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+        previouslyFocusedElement = null;
+    }
 }
 
 mobileMenuBtn.addEventListener('click', () => {
@@ -26,10 +38,15 @@ mobileMenuBtn.addEventListener('click', () => {
     }
 
     isMobileMenuOpen = true;
+    previouslyFocusedElement = document.activeElement;
     document.body.classList.add('sidebar-open');
     mobileMenuBtn.setAttribute('aria-expanded', 'true');
     menuOverlay = document.createElement('div');
     menuOverlay.className = 'mobile-menu-overlay';
+    menuOverlay.id = 'extras-drawer';
+    menuOverlay.setAttribute('role', 'dialog');
+    menuOverlay.setAttribute('aria-modal', 'true');
+    menuOverlay.setAttribute('aria-label', 'Extras');
 
     const sidebarTemplate = document.getElementById('sidebar-template');
     const sidebarClone = sidebarTemplate && sidebarTemplate.content.firstElementChild
@@ -39,7 +56,8 @@ mobileMenuBtn.addEventListener('click', () => {
     menuOverlay.innerHTML = `
         <div class="mobile-menu-content">
             <div class="mobile-menu-header">
-                <button type="button" class="mobile-menu-close" aria-label="Close sidebar">
+                <span class="mobile-menu-kicker">Extras</span>
+                <button type="button" class="mobile-menu-close" aria-label="Close Extras">
                     <i data-feather="x"></i>
                 </button>
             </div>
@@ -59,7 +77,7 @@ mobileMenuBtn.addEventListener('click', () => {
             sidebarTabs.forEach((tab) => {
                 const isActive = tab.dataset.sidebarTab === tabName;
                 tab.classList.toggle('is-active', isActive);
-                tab.setAttribute('aria-pressed', String(isActive));
+                tab.setAttribute('aria-selected', String(isActive));
             });
 
             sidebarPanels.forEach((panel) => {
@@ -79,6 +97,7 @@ mobileMenuBtn.addEventListener('click', () => {
     }
 
     document.body.appendChild(menuOverlay);
+    setBackgroundInert(true);
 
     if (window.feather) {
         feather.replace();
@@ -86,12 +105,187 @@ mobileMenuBtn.addEventListener('click', () => {
 
     const closeButton = menuOverlay.querySelector('.mobile-menu-close');
     closeButton.addEventListener('click', closeMobileMenu);
+    closeButton.focus();
+
+    menuOverlay.addEventListener('keydown', (event) => {
+        if (event.key !== 'Tab') return;
+
+        const focusableElements = [...menuOverlay.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')]
+            .filter((element) => element.getClientRects().length > 0);
+        if (!focusableElements.length) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        if (event.shiftKey && document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    });
 
     menuOverlay.addEventListener('click', (event) => {
         if (event.target === menuOverlay) {
             closeMobileMenu();
         }
     });
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && isMobileMenuOpen) {
+        closeMobileMenu();
+    }
+});
+
+// Project details
+const projectDetails = {
+    'repo-analysis': {
+        title: 'Repo Analysis',
+        sections: [
+            ['Overview', 'An analytics workflow that transforms GitHub repository data into an interactive Power BI dashboard.'],
+            ['Goal', 'Explore repository data to identify trends and patterns in open-source activity.'],
+            ['Approach', 'Collect GitHub data through the GitHub REST API, then shape and analyze it with Power BI and DAX.'],
+            ['Data', 'GitHub repository data collected through the GitHub REST API.'],
+            ['Stack', 'Power BI, GitHub REST API, DAX']
+        ],
+        links: [
+            ['Live Dashboard', 'https://app.powerbi.com/view?r=eyJrIjoiYWEyYTZiMjQtNjljMS00NzJmLTlmN2MtOTMzNWRmNGVkOWViIiwidCI6Ijg0MWU5OTFmLTE3MzAtNDMzZi04MmJhLWVhNzg5NTAwNGZmYSJ9'],
+            ['GitHub Repo', 'https://github.com/steam-bell-92/open-source-repo-analysis']
+        ]
+    },
+    'eshop-dashboard': {
+        title: 'E-shop Dashboard',
+        sections: [
+            ['Overview', 'A business intelligence dashboard for exploring e-shop performance metrics.'],
+            ['Goal', 'Turn e-shop data into a clearer view of performance and business metrics.'],
+            ['Analysis', 'Use Power BI and DAX to organize, analyze, and present the available e-shop data.'],
+            ['Dashboard', 'An interactive Power BI dashboard designed for browsing the analysis.'],
+            ['Stack', 'Power BI, DAX']
+        ],
+        links: [
+            ['Live Dashboard', 'https://app.powerbi.com/view?r=eyJrIjoiYTdkZTlkMDItZTc3Zi00N2ExLWEzYzItNTljN2U3MjFkMGM0IiwidCI6Ijg0MWU5OTFmLTE3MzAtNDMzZi04MmJhLWVhNzg5NTAwNGZmYSJ9'],
+            ['GitHub Repo', 'https://github.com/steam-bell-92/e-shopp-dashboard']
+        ]
+    },
+    'intel-sensors': {
+        title: 'Intel Sensors',
+        sections: [
+            ['Overview', 'A room occupancy prediction project using Intel sensor data and complementary supervised and unsupervised learning.'],
+            ['Problem', 'Predict room occupancy while paying attention to class imbalance and the cost of false negatives.'],
+            ['Data', 'Intel sensor data used for room occupancy analysis.'],
+            ['Approach', 'Use Random Forest for supervised prediction and K-Means for unsupervised exploration.'],
+            ['Evaluation', 'Consider precision, recall, class imbalance, and false negatives when assessing the model.'],
+            ['Stack', 'Python, Scikit-Learn, Random Forest, K-Means']
+        ],
+        links: [
+            ['Live Demo', 'https://intel-sensors.vercel.app/'],
+            ['GitHub Repo', 'https://github.com/steam-bell-92/Intel_Sensors']
+        ]
+    },
+    spotify: {
+        title: 'Spotify',
+        sections: [
+            ['Overview', 'A music clustering project that explores a large Spotify dataset with unsupervised learning.'],
+            ['Goal', 'Find useful groupings across more than 1.2 million tracks.'],
+            ['Data', 'A Spotify dataset containing 1.2M+ tracks.'],
+            ['Approach', 'Apply K-Means clustering to explore groups in the track data and its audio features.'],
+            ['Stack', 'Python, K-Means, large-scale data analysis']
+        ],
+        links: [
+            ['GitHub Repo', 'https://github.com/steam-bell-92/Spotify']
+        ]
+    }
+};
+
+const projectDetailsDialog = document.getElementById('project-details-dialog');
+const projectDetailsTitle = document.getElementById('project-details-title');
+const projectDetailsContent = document.getElementById('project-details-content');
+const projectDetailsClose = document.getElementById('project-details-close');
+let isProjectDetailsOpen = false;
+let projectDetailsTrigger = null;
+
+function visibleDialogFocusables() {
+    return [...projectDetailsDialog.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')]
+        .filter((element) => element.getClientRects().length > 0);
+}
+
+function closeProjectDetails() {
+    if (!isProjectDetailsOpen) return;
+
+    isProjectDetailsOpen = false;
+    projectDetailsDialog.hidden = true;
+    document.body.classList.remove('project-details-open');
+    setBackgroundInert(false);
+    if (projectDetailsTrigger) {
+        projectDetailsTrigger.focus();
+        projectDetailsTrigger = null;
+    }
+}
+
+function openProjectDetails(projectId, trigger) {
+    const project = projectDetails[projectId];
+    if (!project) return;
+
+    projectDetailsTrigger = trigger;
+    projectDetailsTitle.textContent = project.title;
+    projectDetailsContent.innerHTML = `
+        <div class="project-details-sections">
+            ${project.sections.map(([label, text]) => `
+                <section class="project-details-section">
+                    <h3>${label}</h3>
+                    <p>${text}</p>
+                </section>
+            `).join('')}
+        </div>
+        <div class="project-details-links">
+            <h3>Links</h3>
+            <div class="project-actions">
+                ${project.links.map(([label, url]) => `
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="project-link project-link-repo">${label}</a>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    isProjectDetailsOpen = true;
+    document.body.classList.add('project-details-open');
+    setBackgroundInert(true);
+    projectDetailsDialog.hidden = false;
+    projectDetailsClose.focus();
+}
+
+document.querySelectorAll('[data-project-details]').forEach((button) => {
+    button.addEventListener('click', () => {
+        openProjectDetails(button.dataset.projectDetails, button);
+    });
+});
+
+projectDetailsClose.addEventListener('click', closeProjectDetails);
+projectDetailsDialog.addEventListener('click', (event) => {
+    if (event.target === projectDetailsDialog) {
+        closeProjectDetails();
+    }
+});
+projectDetailsDialog.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeProjectDetails();
+        return;
+    }
+
+    if (event.key !== 'Tab') return;
+    const focusableElements = visibleDialogFocusables();
+    if (!focusableElements.length) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+    }
 });
 
 // Particles Canvas
@@ -295,31 +489,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Resume download: fetch the file and force a download (works around cross-origin download issues)
-const resumeBtn = document.getElementById('download-resume');
-if (resumeBtn) {
-    resumeBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const url = resumeBtn.href;
-        try {
-            const res = await fetch(url);
-            if (!res.ok) throw new Error('Network response was not ok');
-            const blob = await res.blob();
-            const objectUrl = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = objectUrl;
-            a.download = 'Anuj_Kulkarni_Resume.pdf';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(objectUrl);
-        } catch (err) {
-            // Fallback: navigate to the file (browser may handle download)
-            window.location.href = url;
-        }
-    });
-}
 
 // Ensure icons are rendered after dynamic content
 if (window.feather) {
