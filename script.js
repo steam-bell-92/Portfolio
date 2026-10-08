@@ -9,6 +9,60 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 let isMobileMenuOpen = false;
 let menuOverlay = null;
 let previouslyFocusedElement = null;
+const sidebarTemplate = document.getElementById('sidebar-template');
+
+function cloneSidebar(instanceName) {
+    const sidebarClone = sidebarTemplate && sidebarTemplate.content.firstElementChild
+        ? sidebarTemplate.content.firstElementChild.cloneNode(true)
+        : null;
+
+    if (!sidebarClone) return null;
+
+    sidebarClone.querySelectorAll('[id]').forEach((element) => {
+        element.id = `${element.id}-${instanceName}`;
+    });
+    sidebarClone.querySelectorAll('[aria-controls], [aria-labelledby]').forEach((element) => {
+        ['aria-controls', 'aria-labelledby'].forEach((attribute) => {
+            const value = element.getAttribute(attribute);
+            if (value) element.setAttribute(attribute, `${value}-${instanceName}`);
+        });
+    });
+
+    return sidebarClone;
+}
+
+function initializeSidebar(sidebar) {
+    const sidebarTabs = sidebar.querySelectorAll('[data-sidebar-tab]');
+    const sidebarPanels = sidebar.querySelectorAll('[data-sidebar-panel]');
+
+    const setActivePanel = (tabName) => {
+        sidebarTabs.forEach((tab) => {
+            const isActive = tab.dataset.sidebarTab === tabName;
+            tab.classList.toggle('is-active', isActive);
+            tab.setAttribute('aria-selected', String(isActive));
+        });
+
+        sidebarPanels.forEach((panel) => {
+            const isActive = panel.dataset.sidebarPanel === tabName;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+        });
+    };
+
+    sidebarTabs.forEach((tab) => {
+        tab.addEventListener('click', () => setActivePanel(tab.dataset.sidebarTab));
+    });
+
+    setActivePanel('experience');
+}
+
+const desktopExtras = document.getElementById('desktop-extras');
+const desktopSidebar = cloneSidebar('desktop');
+if (desktopExtras && desktopSidebar) {
+    desktopSidebar.classList.add('sidebar-card--desktop');
+    desktopExtras.appendChild(desktopSidebar);
+    initializeSidebar(desktopSidebar);
+}
 
 function setBackgroundInert(isInert) {
     document.querySelectorAll('body > header, body > main, body > footer').forEach((element) => {
@@ -48,10 +102,7 @@ mobileMenuBtn.addEventListener('click', () => {
     menuOverlay.setAttribute('aria-modal', 'true');
     menuOverlay.setAttribute('aria-label', 'Extras');
 
-    const sidebarTemplate = document.getElementById('sidebar-template');
-    const sidebarClone = sidebarTemplate && sidebarTemplate.content.firstElementChild
-        ? sidebarTemplate.content.firstElementChild.cloneNode(true)
-        : null;
+    const sidebarClone = cloneSidebar('drawer');
 
     menuOverlay.innerHTML = `
         <div class="mobile-menu-content">
@@ -70,30 +121,7 @@ mobileMenuBtn.addEventListener('click', () => {
         const sidebarSlot = menuOverlay.querySelector('.mobile-menu-sidebar-slot');
         sidebarSlot.appendChild(sidebarClone);
 
-        const sidebarTabs = sidebarClone.querySelectorAll('[data-sidebar-tab]');
-        const sidebarPanels = sidebarClone.querySelectorAll('[data-sidebar-panel]');
-
-        const setActivePanel = (tabName) => {
-            sidebarTabs.forEach((tab) => {
-                const isActive = tab.dataset.sidebarTab === tabName;
-                tab.classList.toggle('is-active', isActive);
-                tab.setAttribute('aria-selected', String(isActive));
-            });
-
-            sidebarPanels.forEach((panel) => {
-                const isActive = panel.dataset.sidebarPanel === tabName;
-                panel.classList.toggle('is-active', isActive);
-                panel.hidden = !isActive;
-            });
-        };
-
-        sidebarTabs.forEach((tab) => {
-            tab.addEventListener('click', () => {
-                setActivePanel(tab.dataset.sidebarTab);
-            });
-        });
-
-        setActivePanel('experience');
+        initializeSidebar(sidebarClone);
     }
 
     document.body.appendChild(menuOverlay);
@@ -293,127 +321,11 @@ projectDetailsDialog.addEventListener('keydown', (event) => {
     }
 });
 
-// Particles Canvas
-const canvas = document.getElementById('particles-canvas');
-if (canvas) {
-    const ctx = canvas.getContext('2d');
-
-    let particles = [];
-    let mouseX = 0;
-    let mouseY = 0;
-
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    resizeCanvas();
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.size = Math.random() * 1.5;
-            this.opacity = Math.random() * 0.5 + 0.2;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-            this.x = Math.max(0, Math.min(this.x, canvas.width));
-            this.y = Math.max(0, Math.min(this.y, canvas.height));
-        }
-
-        draw() {
-            ctx.fillStyle = `rgba(45, 212, 191, ${this.opacity})`;
-            ctx.fillRect(this.x, this.y, this.size, this.size);
-        }
-    }
-
-    function initParticles() {
-        particles = [];
-        const particleCount = Math.floor((canvas.width * canvas.height) / 14000);
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    initParticles();
-
-    function drawConnections() {
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 100) {
-                    ctx.strokeStyle = `rgba(45, 212, 191, ${0.08 * (1 - distance / 100)})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-        }
-
-        drawConnections();
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        particles.forEach(particle => {
-            const dx = particle.x - mouseX;
-            const dy = particle.y - mouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-                const angle = Math.atan2(dy, dx);
-                const force = (150 - distance) / 150;
-                particle.vx += Math.cos(angle) * force * 0.5;
-                particle.vy += Math.sin(angle) * force * 0.5;
-            }
-        });
-    });
-
-    window.addEventListener('resize', () => {
-        resizeCanvas();
-        initParticles();
-    });
-}
-
 // Header scroll shadow effect
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-        navbar.style.borderBottomColor = 'rgba(45, 212, 191, 0.18)';
-        navbar.style.boxShadow = '0 8px 30px rgba(2, 8, 23, 0.18)';
-    } else {
-        navbar.style.borderBottomColor = 'rgba(148, 163, 184, 0.14)';
-        navbar.style.boxShadow = 'none';
-    }
-});
+const updateNavbar = () => navbar.classList.toggle('is-scrolled', window.scrollY > 10);
+window.addEventListener('scroll', updateNavbar, { passive: true });
+updateNavbar();
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -424,7 +336,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+            entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
         }
     });
@@ -432,7 +344,6 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe sections
 document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
     observer.observe(section);
 });
 
